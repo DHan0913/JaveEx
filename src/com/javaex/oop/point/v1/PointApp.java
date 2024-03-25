@@ -1,7 +1,5 @@
 package com.javaex.oop.point.v1;
 
-import com.javaex.oop.goods.v2.Goods;
-
 public class PointApp {
 
 	public static void main(String[] args) {
