@@ -11,7 +11,7 @@ public class SingletonApp {
 	    System.out.println("s2 = " + s2);
 	    
 	    // 두 객체는 같은 객체?
-	    System.out.println("s1 == s2 ? " + (s1 == s2));
+	    System.out.println("s1 == s2 ? ," + (s1 == s2));
 	}
 
 }
