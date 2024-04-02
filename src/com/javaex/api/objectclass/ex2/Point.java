@@ -31,7 +31,7 @@ public class Point {	//	extends java.lang.Object
 				return false;
 			}
 		}
-		//	obj가 Point가 아님
+		//	obj와 Point가 동일 객체가 아닐 경우 
 		return super.equals(obj);	//	부모에게 비교 방법을 위임
 		
 		
