@@ -23,6 +23,7 @@ public class StatckEx {
 			System.out.println("Stack" + stack);
 		}
 		//	Stack 비어있는지 확인 해야 한다
+		
 //		while(!stack.empty()) {	//비어 있지 않으면
 //			System.out.println("POP:" + stack.pop());
 //			System.out.println("STACK:" + stack);
