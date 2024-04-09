@@ -174,6 +174,7 @@ public class StreamEx {
 					System.out.println("curr:" + curr);
 					return acc + curr;
 				});
+		System.out.println("Total:" + total);
 	}
 }
 
