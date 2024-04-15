@@ -6,7 +6,6 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -43,7 +42,8 @@ public class PhoneDB {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
-		while (true) {
+		boolean a = true;
+		while (a == true) {
 			System.out.println("1.리스트  2.등록  3.삭제  4.검색  5.종료");
 			System.out.println("-------------------------");
 			System.out.print(">메뉴번호:");
@@ -55,22 +55,24 @@ public class PhoneDB {
 				showContact();
 				break;
 			case "2":
-				addContact();
+				addContact(scanner);
 				break;
 			case "3":
 				showContact();
-				deleteContact();
+				deleteContact(scanner);
 				break;
 			case "4":
-				searchContact();
+				searchContact(scanner);
 				break;
 			case "5":
 				System.out.println("감사합니다.");
-				return;
+				a = false;
+				break;
 			default:
 				System.out.println("올바른 선택이 아닙니다. 다시 선택하세요.");
 			}
 		}
+		scanner.close();
 	}
 
 	private static List<Contact> readContacts() {
@@ -105,20 +107,18 @@ public class PhoneDB {
 		}
 	}
 
-	private static void addContact() {
+	private static void addContact(Scanner scanner) {
 		try (
 				// 파일에 연락처를 추가하기 위해 FileWriter와 BufferedWriter를 사용합니다.
 				FileWriter fw = new FileWriter(filename, true);
 				BufferedWriter bw = new BufferedWriter(fw);) {
 			// 사용자로부터 이름, 휴대전화번호, 회사번호를 입력받습니다.
-			InputStreamReader isr = new InputStreamReader(System.in);
-			BufferedReader br = new BufferedReader(isr);
 			System.out.print("이름: ");
-			String name = br.readLine();
+			String name = scanner.nextLine();
 			System.out.print("휴대전화: ");
-			String mobile = br.readLine();
+			String mobile = scanner.nextLine();
 			System.out.print("회사번호: ");
-			String company = br.readLine();
+			String company = scanner.nextLine();
 
 			// 파일에 연락처를 추가합니다.
 			bw.write(name + "," + mobile + "," + company);
@@ -135,13 +135,12 @@ public class PhoneDB {
 		}
 	}
 
-	private static void deleteContact() {
+	private static void deleteContact(Scanner scanner) {
 		List<Contact> contacts = readContacts();
 
 		try (FileWriter fw = new FileWriter(filename); BufferedWriter bw = new BufferedWriter(fw);) {
 			System.out.println("<3.삭제>");
 			System.out.print("번호: ");
-			Scanner scanner = new Scanner(System.in);
 			int deleteLine = Integer.parseInt(scanner.nextLine());
 
 			// 삭제할 연락처를 제외하고 나머지 연락처를 파일에 씁니다.
@@ -164,10 +163,9 @@ public class PhoneDB {
 		}
 	}
 
-	private static void searchContact() {
+	private static void searchContact(Scanner scanner) {
 		List<Contact> contacts = readContacts();
 
-		Scanner scanner = new Scanner(System.in);
 
 		System.out.print("검색할 이름: ");
 		String name = scanner.nextLine();
