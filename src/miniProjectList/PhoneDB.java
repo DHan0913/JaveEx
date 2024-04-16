@@ -144,8 +144,11 @@ public class PhoneDB {
 			int deleteLine = Integer.parseInt(scanner.nextLine());
 
 			// 삭제할 연락처를 제외하고 나머지 연락처를 파일에 씁니다.
+			Iterator<Contact> iterator = contacts.iterator();
 			int lineNumber = 1;
-			for (Contact contact : contacts) {
+			while (iterator.hasNext()) {
+				Contact contact = iterator.next();
+//			for (Contact contact : contacts) {
 				if (lineNumber != deleteLine) {
 					bw.write(contact.getName() + "," + contact.getMobile() + "," + contact.getCompany());
 					bw.newLine();
