@@ -23,7 +23,7 @@ public class SelectTest {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			conn = DriverManager.getConnection(dburl, dbuser, dbpass);	
 			stmt = conn.createStatement();
-			rs = null;
+			//rs = null;
 				 
 			String sql = "SELECT department_id, department_name FROM departments";
 			
