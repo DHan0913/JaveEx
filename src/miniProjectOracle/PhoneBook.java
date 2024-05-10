@@ -70,10 +70,10 @@ public class PhoneBook {
 		System.out.print("이름:");
 		String name = scanner.nextLine();
 		
-		System.out.print("hp:");
+		System.out.print("휴대전화:");
 		String hp = scanner.nextLine();
 
-		System.out.print("tel:");
+		System.out.print("집전화:");
 		String tel = scanner.nextLine();
 
 		
