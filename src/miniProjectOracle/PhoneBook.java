@@ -9,7 +9,11 @@ public class PhoneBook {
 
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
-
+		System.out.println("********************************");
+		System.out.println("*     전화번호 검색 프로그램         *");
+		System.out.println("********************************");
+		
+		
 		boolean a = true;
 		while (a == true) {
 			System.out.println("1.리스트  2.등록  3.삭제  4.검색  5.종료");
@@ -77,7 +81,7 @@ public class PhoneBook {
 		
 		PhoneBookDAO dao = new PhoneBookDAOImpl();
 		boolean success = dao.insert(vo);
-		System.out.println("INSERT " + (success ? "성공": "실패"));
+		System.out.println((success ? "등록": "실패") +" 했습니다.");
 		
 	}
 	
@@ -89,7 +93,7 @@ public class PhoneBook {
 		PhoneBookDAO dao = new PhoneBookDAOImpl();
 		boolean success = dao.delete(id);
 		
-		System.out.println("DELETE " + (success ? "성공":"실패"));
+		System.out.println((success ? "삭제":"실패")+ " 했습니다.");
 	}
 	
 	private static void getPhoneBook(Scanner scanner) {
