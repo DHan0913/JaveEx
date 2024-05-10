@@ -40,13 +40,10 @@ public class PhoneBookDAOImpl implements PhoneBookDAO {
 			conn = getConnection();
 			// 2. Statement
 			stmt = conn.createStatement();
-			// 3. SQL 쿼리 전송 -> ResultSet
 			String sql = "SELECT * FROM phone_book";
 			rs = stmt.executeQuery(sql);
-			// 4. ResultSet 순회 -> 레코드를 AuthorVO로 변경
-			// List에 추가
 			while (rs.next()) {
-				Long id = rs.getLong(1); // = rs.getLong("author_id")
+				Long id = rs.getLong(1); 
 				String name = rs.getString(2);
 				String hp = rs.getString(3);
 				String tel = rs.getString(4);
