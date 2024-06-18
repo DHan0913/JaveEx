@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.Date;
 import java.util.Scanner;
 
-public class HRSearchEmployees {
+public class HRSearchEmployees_o {
 	public static void main(String[] args) {
 		String dburl = "jdbc:oracle:thin:@localhost:1521:xe";
 		String dbuser = "hr";
